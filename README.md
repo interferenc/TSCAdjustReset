@@ -1,4 +1,4 @@
-#TSCAdjustReset.kext
+# TSCAdjustReset.kext
 
 This kernel extension fixes the consenquences of unsyncronised TSC when booting Mac OS on an X299 board with Skylake-X CPUs.
 
