@@ -1,14 +1,7 @@
-/*  Do what you want with this. 
- This work originates from the ideas of Turbo and the 
- frustrations of cosmo1t the dell owner.
- *
- */
-
 
 #include <IOKit/IOService.h>
 #include <IOKit/IOLib.h>
 #include <i386/proc_reg.h>
-
 
 
 //reg define
@@ -27,10 +20,12 @@ extern "C" void  mp_rendezvous_no_intrs(
 class hu_interferenc_TSCAdjustReset : public IOService
 {
 	OSDeclareDefaultStructors(hu_interferenc_TSCAdjustReset)
-
+private:
+	void doTSCReset(void);
 public:
     virtual bool init(OSDictionary *dictionary = 0);
     virtual bool start(IOService *provider);
     virtual void stop(IOService *provider);
+    virtual IOReturn setPowerState(unsigned long powerStateOrdinal, IOService *whatDevice);
 
 };
